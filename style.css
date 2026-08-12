@@ -140,62 +140,73 @@ body {
 
 
 /* =========================================
-   LOGO
+   LOGO DESTACADA
 ========================================= */
 
 .logo-area {
     display: flex;
-
     justify-content: center;
+    align-items: center;
 
-    margin-bottom: 28px;
+    margin-bottom: 32px;
 }
 
 .logo {
-    width: 105px;
-    height: 105px;
+    width: 180px;
+    height: 140px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
-    padding: 14px;
+    padding: 0;
 
-    background: var(--branco);
+    /* REMOVE O QUADRADO */
+    background: transparent;
+    border: none;
+    box-shadow: none;
 
-    border-radius: 26px;
-
-    border: 1px solid var(--borda);
-
-    box-shadow: var(--sombra);
+    border-radius: 0;
 
     position: relative;
 }
 
+/* Brilho sutil atrás da logo */
 .logo::after {
     content: "";
 
     position: absolute;
 
-    inset: -5px;
+    width: 150px;
+    height: 150px;
 
-    border-radius: 30px;
+    border-radius: 50%;
 
-    border: 1px solid rgba(73, 191, 175, 0.15);
+    background: rgba(73, 191, 175, 0.08);
+
+    filter: blur(25px);
+
+    z-index: -1;
 
     pointer-events: none;
 }
 
+/* LOGO */
 .logo img {
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
 
     object-fit: contain;
 
-    border-radius: 14px;
-}
+    border-radius: 0;
 
+    /* Ajuda a eliminar visualmente o fundo branco */
+    mix-blend-mode: multiply;
+
+    filter: drop-shadow(
+        0 8px 15px rgba(21, 94, 87, 0.12)
+    );
+}
 
 /* =========================================
    CABEÇALHO
@@ -531,12 +542,31 @@ footer {
     /* LOGO */
 
     .logo {
-        width: 88px;
-        height: 88px;
+        width: 145px;
+        height: 115px;
 
-        padding: 12px;
+        padding: 0;
 
-        border-radius: 22px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+
+        border-radius: 0;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+
+        border-radius: 0;
+
+        mix-blend-mode: multiply;
+
+        filter: drop-shadow(
+            0 6px 12px rgba(21, 94, 87, 0.12)
+        );
     }
 
 
@@ -639,8 +669,8 @@ footer {
 
 
     .logo {
-        width: 78px;
-        height: 78px;
+        width: 125px;
+        height: 100px;
     }
 
 
