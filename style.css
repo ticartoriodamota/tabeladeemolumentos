@@ -1,0 +1,720 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ================================
+       PALETA DO CARTÓRIO
+    ================================= */
+
+    --verde-principal: #155E57;
+    --verde-escuro: #0E4742;
+    --verde-claro: #49BFAF;
+    --verde-suave: #E8F5F2;
+
+    --fundo: #F5F7FA;
+    --branco: #FFFFFF;
+
+    --texto: #17231D;
+    --texto-secundario: #68746D;
+
+    --borda: #DCE6E2;
+
+    --sombra:
+        0 12px 35px rgba(21, 94, 87, 0.08);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+
+    background: var(--fundo);
+
+    color: var(--texto);
+
+    min-height: 100vh;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================
+   PÁGINA
+========================================= */
+
+.pagina {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(73, 191, 175, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(21, 94, 87, 0.08),
+            transparent 35%
+        ),
+        var(--fundo);
+}
+
+
+/* =========================================
+   DETALHES DECORATIVOS
+========================================= */
+
+.pagina::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(73, 191, 175, 0.05);
+
+    top: -180px;
+    right: -120px;
+
+    pointer-events: none;
+}
+
+.pagina::after {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(21, 94, 87, 0.04);
+
+    bottom: -140px;
+    left: -100px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+    width: 100%;
+
+    max-width: 680px;
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo-area {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 28px;
+}
+
+.logo {
+    width: 105px;
+    height: 105px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px;
+
+    background: var(--branco);
+
+    border-radius: 26px;
+
+    border: 1px solid var(--borda);
+
+    box-shadow: var(--sombra);
+
+    position: relative;
+}
+
+.logo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(73, 191, 175, 0.15);
+
+    pointer-events: none;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 14px;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.cabecalho {
+    margin-bottom: 38px;
+}
+
+.tag {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 15px;
+
+    border-radius: 50px;
+
+    background: var(--verde-suave);
+
+    color: var(--verde-principal);
+
+    border: 1px solid rgba(73, 191, 175, 0.18);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+h1 {
+    font-size: clamp(32px, 6vw, 48px);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.8px;
+
+    font-weight: 800;
+
+    color: var(--texto);
+
+    margin-bottom: 17px;
+}
+
+h1 span {
+    display: block;
+
+    color: var(--verde-principal);
+}
+
+
+/* =========================================
+   DESCRIÇÃO
+========================================= */
+
+.cabecalho p {
+    max-width: 530px;
+
+    margin: 0 auto;
+
+    color: var(--texto-secundario);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.botoes {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* =========================================
+   BOTÃO PRINCIPAL
+========================================= */
+
+.botao {
+    width: 100%;
+
+    min-height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 15px 18px;
+
+    background: var(--branco);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 20px;
+
+    text-decoration: none;
+
+    color: var(--texto);
+
+    box-shadow:
+        0 7px 25px rgba(21, 94, 87, 0.055);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.botao:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(21, 94, 87, 0.30);
+
+    background: #FCFEFD;
+
+    box-shadow:
+        0 15px 35px rgba(21, 94, 87, 0.12);
+}
+
+.botao:active {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   ÍCONE DE PLAY
+========================================= */
+
+.icone {
+    width: 56px;
+    height: 56px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 3px;
+
+    border-radius: 16px;
+
+    background: var(--verde-principal);
+
+    color: var(--branco);
+
+    font-size: 18px;
+
+    box-shadow:
+        0 8px 18px rgba(21, 94, 87, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.botao:hover .icone {
+    background: var(--verde-escuro);
+
+    transform: scale(1.06);
+
+    box-shadow:
+        0 10px 22px rgba(21, 94, 87, 0.28);
+}
+
+
+/* =========================================
+   TEXTO DO BOTÃO
+========================================= */
+
+.texto-botao {
+    flex: 1;
+
+    min-width: 0;
+
+    text-align: left;
+
+    padding-left: 17px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.texto-botao strong {
+    color: var(--texto);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.texto-botao span {
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================
+   SETA
+========================================= */
+
+.seta {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--verde-suave);
+
+    color: var(--verde-principal);
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.botao:hover .seta {
+    background: var(--verde-principal);
+
+    color: var(--branco);
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   LINHA DE DESTAQUE
+========================================= */
+
+.botao::before {
+    content: "";
+
+    width: 3px;
+
+    height: 0;
+
+    position: absolute;
+
+    left: 0;
+
+    background: var(--verde-claro);
+
+    border-radius: 0 5px 5px 0;
+
+    transition: height 0.25s ease;
+}
+
+.botao {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.botao:hover::before {
+    height: 45%;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    margin-top: 38px;
+
+    color: #8A9690;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .pagina {
+        padding: 40px 16px;
+    }
+
+
+    .container {
+        max-width: 100%;
+    }
+
+
+    /* LOGO */
+
+    .logo {
+        width: 88px;
+        height: 88px;
+
+        padding: 12px;
+
+        border-radius: 22px;
+    }
+
+
+    /* CABEÇALHO */
+
+    .cabecalho {
+        margin-bottom: 30px;
+    }
+
+
+    .tag {
+        font-size: 10px;
+
+        padding: 7px 12px;
+
+        letter-spacing: 1.3px;
+    }
+
+
+    h1 {
+        font-size: 32px;
+
+        letter-spacing: -1.2px;
+    }
+
+
+    .cabecalho p {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    /* BOTÕES */
+
+    .botoes {
+        gap: 12px;
+    }
+
+
+    .botao {
+        min-height: 78px;
+
+        padding: 11px 13px;
+
+        border-radius: 17px;
+    }
+
+
+    .icone {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 14px;
+
+        font-size: 16px;
+    }
+
+
+    .texto-botao {
+        padding-left: 13px;
+
+        gap: 4px;
+    }
+
+
+    .texto-botao strong {
+        font-size: 14px;
+    }
+
+
+    .texto-botao span {
+        font-size: 12px;
+    }
+
+
+    .seta {
+        width: 34px;
+        height: 34px;
+
+        font-size: 16px;
+    }
+
+
+    footer {
+        margin-top: 30px;
+    }
+}
+
+
+/* =========================================
+   CELULARES PEQUENOS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .pagina {
+        padding: 30px 12px;
+    }
+
+
+    .logo {
+        width: 78px;
+        height: 78px;
+    }
+
+
+    h1 {
+        font-size: 28px;
+    }
+
+
+    .cabecalho p {
+        font-size: 13px;
+    }
+
+
+    .botao {
+        min-height: 72px;
+
+        padding: 10px;
+    }
+
+
+    .icone {
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .texto-botao {
+        padding-left: 10px;
+    }
+
+
+    .texto-botao strong {
+        font-size: 13px;
+    }
+
+
+    .texto-botao span {
+        font-size: 11px;
+    }
+
+
+    .seta {
+        width: 31px;
+        height: 31px;
+    }
+}
+
+
+/* =========================================
+   ACESSIBILIDADE
+========================================= */
+
+.botao:focus-visible {
+    outline: 3px solid rgba(73, 191, 175, 0.45);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   REDUZIR ANIMAÇÕES
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
