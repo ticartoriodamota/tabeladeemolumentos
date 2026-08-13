@@ -4,32 +4,32 @@
     box-sizing: border-box;
 }
 
+/* =========================================================
+   PALETA DO CARTÓRIO
+   ========================================================= */
+
 :root {
-    /* ================================
-       PALETA DO CARTÓRIO
-    ================================= */
+    --verde-principal: #38BA5E;
+    --verde-escuro: #168A40;
+    --verde-claro: #67D987;
+    --verde-suave: #EAF8EE;
 
-    --verde-principal: #155E57;
-    --verde-escuro: #0E4742;
-    --verde-claro: #49BFAF;
-    --verde-suave: #E8F5F2;
+    --fundo: #050705;
+    --branco: #101510;
 
-    --fundo: #F5F7FA;
-    --branco: #FFFFFF;
+    --texto: #FFFFFF;
+    --texto-secundario: #AAB5AE;
 
-    --texto: #17231D;
-    --texto-secundario: #68746D;
-
-    --borda: #DCE6E2;
+    --borda: rgba(56, 186, 94, 0.22);
 
     --sombra:
-        0 12px 35px rgba(21, 94, 87, 0.08);
+        0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
 
-/* =========================================
+/* =========================================================
    RESET
-========================================= */
+   ========================================================= */
 
 html {
     scroll-behavior: smooth;
@@ -38,19 +38,21 @@ html {
 body {
     font-family: "Inter", sans-serif;
 
-    background: var(--fundo);
+    background: #050705;
 
-    color: var(--texto);
+    color: #FFFFFF;
 
     min-height: 100vh;
 
     -webkit-font-smoothing: antialiased;
+
+    overflow-x: hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    PÁGINA
-========================================= */
+   ========================================================= */
 
 .pagina {
     min-height: 100vh;
@@ -68,22 +70,24 @@ body {
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(73, 191, 175, 0.12),
-            transparent 30%
+            circle at 8% 8%,
+            rgba(56, 186, 94, 0.15),
+            transparent 28%
         ),
+
         radial-gradient(
-            circle at 90% 90%,
-            rgba(21, 94, 87, 0.08),
-            transparent 35%
+            circle at 92% 88%,
+            rgba(56, 186, 94, 0.08),
+            transparent 34%
         ),
-        var(--fundo);
+
+        #050705;
 }
 
 
-/* =========================================
+/* =========================================================
    DETALHES DECORATIVOS
-========================================= */
+   ========================================================= */
 
 .pagina::before {
     content: "";
@@ -95,7 +99,8 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(73, 191, 175, 0.05);
+    background:
+        rgba(56, 186, 94, 0.055);
 
     top: -180px;
     right: -120px;
@@ -113,7 +118,8 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(21, 94, 87, 0.04);
+    background:
+        rgba(56, 186, 94, 0.035);
 
     bottom: -140px;
     left: -100px;
@@ -122,9 +128,9 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    CONTAINER
-========================================= */
+   ========================================================= */
 
 .container {
     width: 100%;
@@ -139,12 +145,13 @@ body {
 }
 
 
-/* =========================================
-   LOGO DESTACADA
-========================================= */
+/* =========================================================
+   LOGO
+   ========================================================= */
 
 .logo-area {
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -153,17 +160,17 @@ body {
 
 .logo {
     width: 180px;
-    height: 140px;
+    height: 130px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    padding: 0;
-
-    /* REMOVE O QUADRADO */
     background: transparent;
+
     border: none;
+
     box-shadow: none;
 
     border-radius: 0;
@@ -171,7 +178,11 @@ body {
     position: relative;
 }
 
-/* Brilho sutil atrás da logo */
+
+/* =========================================================
+   BRILHO DA LOGO
+   ========================================================= */
+
 .logo::after {
     content: "";
 
@@ -182,39 +193,62 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(73, 191, 175, 0.08);
+    background:
+        rgba(56, 186, 94, 0.12);
 
-    filter: blur(25px);
+    filter: blur(30px);
 
     z-index: -1;
 
     pointer-events: none;
 }
 
-/* LOGO */
+
+/* =========================================================
+   LOGO BRANCA
+   ========================================================= */
+
 .logo img {
     width: 400px;
-    height: 400 px;
+    height: 400px;
 
     object-fit: contain;
 
     border-radius: 0;
 
-    /* Ajuda a eliminar visualmente o fundo branco */
-    mix-blend-mode: multiply;
+    /*
+       IMPORTANTE:
+       Não usar multiply.
+       Assim a logo branca continua branca.
+    */
 
-    filter: drop-shadow(
-        0 8px 15px rgba(21, 94, 87, 0.12)
-    );
+    mix-blend-mode: normal;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(56, 186, 94, 0.16)
+        )
+
+        drop-shadow(
+            0 8px 18px
+            rgba(0, 0, 0, 0.45)
+        );
 }
 
-/* =========================================
+
+/* =========================================================
    CABEÇALHO
-========================================= */
+   ========================================================= */
 
 .cabecalho {
     margin-bottom: 38px;
 }
+
+
+/* =========================================================
+   TAG
+   ========================================================= */
 
 .tag {
     display: inline-flex;
@@ -226,11 +260,14 @@ body {
 
     border-radius: 50px;
 
-    background: var(--verde-suave);
+    background:
+        rgba(56, 186, 94, 0.10);
 
-    color: var(--verde-principal);
+    color: var(--verde-claro);
 
-    border: 1px solid rgba(73, 191, 175, 0.18);
+    border:
+        1px solid
+        rgba(56, 186, 94, 0.28);
 
     font-size: 11px;
 
@@ -242,12 +279,17 @@ body {
 }
 
 
-/* =========================================
+/* =========================================================
    TÍTULO
-========================================= */
+   ========================================================= */
 
 h1 {
-    font-size: clamp(32px, 6vw, 48px);
+    font-size:
+        clamp(
+            32px,
+            6vw,
+            48px
+        );
 
     line-height: 1.08;
 
@@ -255,9 +297,13 @@ h1 {
 
     font-weight: 800;
 
-    color: var(--texto);
+    color: #FFFFFF;
 
     margin-bottom: 17px;
+
+    text-shadow:
+        0 2px 18px
+        rgba(0, 0, 0, 0.35);
 }
 
 h1 span {
@@ -267,9 +313,9 @@ h1 span {
 }
 
 
-/* =========================================
+/* =========================================================
    DESCRIÇÃO
-========================================= */
+   ========================================================= */
 
 .cabecalho p {
     max-width: 530px;
@@ -284,9 +330,9 @@ h1 span {
 }
 
 
-/* =========================================
+/* =========================================================
    BOTÕES
-========================================= */
+   ========================================================= */
 
 .botoes {
     display: flex;
@@ -297,9 +343,9 @@ h1 span {
 }
 
 
-/* =========================================
-   BOTÃO PRINCIPAL
-========================================= */
+/* =========================================================
+   CARD / BOTÃO
+   ========================================================= */
 
 .botao {
     width: 100%;
@@ -312,45 +358,115 @@ h1 span {
 
     padding: 15px 18px;
 
-    background: var(--branco);
+    /*
+       Fundo diferente do fundo da página.
+       Isso faz os quadrados realmente aparecerem.
+    */
 
-    border: 1px solid var(--borda);
+    background:
+        linear-gradient(
+            145deg,
+            #151B17 0%,
+            #0C110E 100%
+        );
+
+    border:
+        1px solid
+        rgba(56, 186, 94, 0.24);
 
     border-radius: 20px;
 
     text-decoration: none;
 
-    color: var(--texto);
+    color: #FFFFFF;
 
     box-shadow:
-        0 7px 25px rgba(21, 94, 87, 0.055);
+        0 10px 30px
+        rgba(0, 0, 0, 0.35),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.035);
 
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
         border-color 0.25s ease,
         background 0.25s ease;
+
+    position: relative;
+
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   HOVER CARD
+   ========================================================= */
 
 .botao:hover {
     transform: translateY(-4px);
 
-    border-color: rgba(21, 94, 87, 0.30);
+    border-color:
+        var(--verde-principal);
 
-    background: #FCFEFD;
+    background:
+        linear-gradient(
+            145deg,
+            #1B251E 0%,
+            #101711 100%
+        );
 
     box-shadow:
-        0 15px 35px rgba(21, 94, 87, 0.12);
+        0 18px 42px
+        rgba(0, 0, 0, 0.45),
+
+        0 0 25px
+        rgba(56, 186, 94, 0.10);
 }
+
 
 .botao:active {
     transform: translateY(-1px);
 }
 
 
-/* =========================================
-   ÍCONE DE PLAY
-========================================= */
+/* =========================================================
+   LINHA VERDE LATERAL
+   ========================================================= */
+
+.botao::before {
+    content: "";
+
+    width: 3px;
+
+    height: 0;
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        var(--verde-claro);
+
+    border-radius:
+        0 5px 5px 0;
+
+    transition:
+        height 0.25s ease;
+}
+
+.botao:hover::before {
+    height: 45%;
+}
+
+
+/* =========================================================
+   ÍCONE
+   ========================================================= */
 
 .icone {
     width: 56px;
@@ -367,14 +483,17 @@ h1 span {
 
     border-radius: 16px;
 
-    background: var(--verde-principal);
+    background:
+        var(--verde-principal);
 
-    color: var(--branco);
+    color:
+        #050705;
 
     font-size: 18px;
 
     box-shadow:
-        0 8px 18px rgba(21, 94, 87, 0.22);
+        0 8px 22px
+        rgba(56, 186, 94, 0.22);
 
     transition:
         transform 0.25s ease,
@@ -383,18 +502,24 @@ h1 span {
 }
 
 .botao:hover .icone {
-    background: var(--verde-escuro);
+    background:
+        var(--verde-claro);
 
-    transform: scale(1.06);
+    color:
+        #050705;
+
+    transform:
+        scale(1.06);
 
     box-shadow:
-        0 10px 22px rgba(21, 94, 87, 0.28);
+        0 10px 25px
+        rgba(56, 186, 94, 0.28);
 }
 
 
-/* =========================================
+/* =========================================================
    TEXTO DO BOTÃO
-========================================= */
+   ========================================================= */
 
 .texto-botao {
     flex: 1;
@@ -413,7 +538,7 @@ h1 span {
 }
 
 .texto-botao strong {
-    color: var(--texto);
+    color: #FFFFFF;
 
     font-size: 15px;
 
@@ -423,7 +548,7 @@ h1 span {
 }
 
 .texto-botao span {
-    color: var(--texto-secundario);
+    color: #AAB5AE;
 
     font-size: 13px;
 
@@ -433,9 +558,9 @@ h1 span {
 }
 
 
-/* =========================================
+/* =========================================================
    SETA
-========================================= */
+   ========================================================= */
 
 .seta {
     width: 40px;
@@ -450,9 +575,15 @@ h1 span {
 
     border-radius: 50%;
 
-    background: var(--verde-suave);
+    background:
+        rgba(56, 186, 94, 0.10);
 
-    color: var(--verde-principal);
+    color:
+        var(--verde-claro);
+
+    border:
+        1px solid
+        rgba(56, 186, 94, 0.14);
 
     font-size: 19px;
 
@@ -465,55 +596,25 @@ h1 span {
 }
 
 .botao:hover .seta {
-    background: var(--verde-principal);
+    background:
+        var(--verde-principal);
 
-    color: var(--branco);
+    color:
+        #050705;
 
-    transform: translateX(4px);
+    transform:
+        translateX(4px);
 }
 
 
-/* =========================================
-   LINHA DE DESTAQUE
-========================================= */
-
-.botao::before {
-    content: "";
-
-    width: 3px;
-
-    height: 0;
-
-    position: absolute;
-
-    left: 0;
-
-    background: var(--verde-claro);
-
-    border-radius: 0 5px 5px 0;
-
-    transition: height 0.25s ease;
-}
-
-.botao {
-    position: relative;
-
-    overflow: hidden;
-}
-
-.botao:hover::before {
-    height: 45%;
-}
-
-
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+   ========================================================= */
 
 footer {
     margin-top: 38px;
 
-    color: #8A9690;
+    color: #7F8B84;
 
     font-size: 11px;
 
@@ -523,16 +624,15 @@ footer {
 }
 
 
-/* =========================================
+/* =========================================================
    RESPONSIVIDADE
-========================================= */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
     .pagina {
         padding: 40px 16px;
     }
-
 
     .container {
         max-width: 100%;
@@ -545,10 +645,10 @@ footer {
         width: 145px;
         height: 115px;
 
-        padding: 0;
-
         background: transparent;
+
         border: none;
+
         box-shadow: none;
 
         border-radius: 0;
@@ -560,13 +660,13 @@ footer {
 
         object-fit: contain;
 
-        border-radius: 0;
+        mix-blend-mode: normal;
 
-        mix-blend-mode: multiply;
-
-        filter: drop-shadow(
-            0 6px 12px rgba(21, 94, 87, 0.12)
-        );
+        filter:
+            drop-shadow(
+                0 0 14px
+                rgba(56, 186, 94, 0.16)
+            );
     }
 
 
@@ -576,7 +676,6 @@ footer {
         margin-bottom: 30px;
     }
 
-
     .tag {
         font-size: 10px;
 
@@ -585,13 +684,11 @@ footer {
         letter-spacing: 1.3px;
     }
 
-
     h1 {
         font-size: 32px;
 
         letter-spacing: -1.2px;
     }
-
 
     .cabecalho p {
         font-size: 14px;
@@ -606,7 +703,6 @@ footer {
         gap: 12px;
     }
 
-
     .botao {
         min-height: 78px;
 
@@ -614,7 +710,6 @@ footer {
 
         border-radius: 17px;
     }
-
 
     .icone {
         width: 48px;
@@ -625,23 +720,19 @@ footer {
         font-size: 16px;
     }
 
-
     .texto-botao {
         padding-left: 13px;
 
         gap: 4px;
     }
 
-
     .texto-botao strong {
         font-size: 14px;
     }
 
-
     .texto-botao span {
         font-size: 12px;
     }
-
 
     .seta {
         width: 34px;
@@ -650,16 +741,15 @@ footer {
         font-size: 16px;
     }
 
-
     footer {
         margin-top: 30px;
     }
 }
 
 
-/* =========================================
+/* =========================================================
    CELULARES PEQUENOS
-========================================= */
+   ========================================================= */
 
 @media (max-width: 380px) {
 
@@ -667,22 +757,18 @@ footer {
         padding: 30px 12px;
     }
 
-
     .logo {
         width: 125px;
         height: 100px;
     }
 
-
     h1 {
         font-size: 28px;
     }
 
-
     .cabecalho p {
         font-size: 13px;
     }
-
 
     .botao {
         min-height: 72px;
@@ -690,27 +776,22 @@ footer {
         padding: 10px;
     }
 
-
     .icone {
         width: 44px;
         height: 44px;
     }
 
-
     .texto-botao {
         padding-left: 10px;
     }
-
 
     .texto-botao strong {
         font-size: 13px;
     }
 
-
     .texto-botao span {
         font-size: 11px;
     }
-
 
     .seta {
         width: 31px;
@@ -719,20 +800,22 @@ footer {
 }
 
 
-/* =========================================
+/* =========================================================
    ACESSIBILIDADE
-========================================= */
+   ========================================================= */
 
 .botao:focus-visible {
-    outline: 3px solid rgba(73, 191, 175, 0.45);
+    outline:
+        3px solid
+        rgba(56, 186, 94, 0.45);
 
     outline-offset: 4px;
 }
 
 
-/* =========================================
+/* =========================================================
    REDUZIR ANIMAÇÕES
-========================================= */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -744,7 +827,9 @@ footer {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
     }
 }

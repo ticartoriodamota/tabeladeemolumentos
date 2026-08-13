@@ -4,9 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     botoes.forEach((botao, index) => {
 
+        // Estado inicial
         botao.style.opacity = "0";
         botao.style.transform = "translateY(15px)";
 
+        // Animação
         setTimeout(() => {
 
             botao.style.transition =
